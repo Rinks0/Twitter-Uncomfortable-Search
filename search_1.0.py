@@ -49,7 +49,7 @@ def url_search(name, url):
             
 
 st1 = input(u"攻撃的な発言をするアカウントをリストアップしますか？ Y/N : ")
-st2 = input(u"攻撃的な発言をするアカウントをリストアップしますか？ Y/N : ")
+st2 = input(u"信頼性の低いURLを投稿するアカウントをリストアップしますか？ Y/N : ")
    
             
 tw = twitter_instance()
