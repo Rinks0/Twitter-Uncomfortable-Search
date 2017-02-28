@@ -48,6 +48,10 @@ def url_search(name, url):
             fout.writelines("@" + name + ", " + u"信頼性の低いURL https://twitter.com/" + name + "\r")
             
 
+st1 = input(u"攻撃的な発言をするアカウントをリストアップしますか？ Y/N : ")
+st2 = input(u"攻撃的な発言をするアカウントをリストアップしますか？ Y/N : ")
+   
+            
 tw = twitter_instance()
 
 #TL200件取得
@@ -62,10 +66,12 @@ fout = open("result.txt", "w")
 
 
 for stat1 in statuses:
-    violent_search1(stat1["user"]["screen_name"], stat1["text"])
-    #短縮元URLの入っているentitiesはリストの中に辞書が入っている
-    entities = stat1["entities"]["urls"]
-    for stat2 in entities:
-        url_search(stat1["user"]["screen_name"], stat2["expanded_url"])
+    if st1 == "Y":
+        violent_search1(stat1["user"]["screen_name"], stat1["text"])
+        #短縮元URLの入っているentitiesはリストの中に辞書が入っている
+    if st2 == "Y":
+        entities = stat1["entities"]["urls"]
+        for stat2 in entities:
+            url_search(stat1["user"]["screen_name"], stat2["expanded_url"])
 
 fout.close()
